@@ -8,15 +8,14 @@ Vagrant.configure("2") do |config|
       ram = File.read('.vagrant_ram').strip.to_i
       vb.customize ["modifyvm", :id, "--memory", ram]
     else
-      vb.customize ["modifyvm", :id, "--memory", 1024]
+      vb.customize ["modifyvm", :id, "--memory", 2048]
     end
     if File.exist?('.vagrant_cpus')
       cpus = File.read('.vagrant_cpus').strip.to_i
       vb.customize ["modifyvm", :id, "--cpus", cpus ]
     end
   end
-  config.vm.box = "precise64"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.box = "ubuntu/trusty64"
   config.vm.network :private_network, ip: "10.30.30.50"
   config.vm.network :forwarded_port, host: 20008, guest: 20008
   config.vm.network :forwarded_port, host: 20009, guest: 20009
