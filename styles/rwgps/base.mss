@@ -17,10 +17,30 @@
   polygon-gamma: 0.75;
 }
 
+.hillshade {
+  //raster-opacity: 0.4;
+  //raster-comp-op: multiply;
+  raster-scaling: bilinear;
+}
+
+
+.slopeshade {
+  raster-opacity: 0.4;
+  raster-comp-op: multiply;
+  raster-scaling: bilinear;
+}
+
+
 #ne-lakes[zoom<6],
 .water[zoom>5] {
   polygon-fill:@water;
   polygon-gamma:0.8;
+}
+
+#landuse_gen0,
+#landuse_gen1,
+#landuse {
+  opacity: 0.5;
 }
 
 #landuse_gen0[zoom>3][zoom<=9],

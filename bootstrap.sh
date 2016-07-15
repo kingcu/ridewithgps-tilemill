@@ -17,8 +17,11 @@ then
 
   sudo -u postgres createuser gis
   sudo -u postgres createdb -O gis gis
+  sudo -u postgres createdb -O gis srtm
   sudo -u postgres psql -c "CREATE EXTENSION hstore; CREATE EXTENSION postgis;" -d gis
+  sudo -u postgres psql -c "CREATE EXTENSION postgis;" -d srtm
   sudo -u postgres psql -c "ALTER TABLE geometry_columns OWNER TO gis; ALTER TABLE spatial_ref_sys OWNER TO gis;" -d gis
+  sudo -u postgres psql -c "ALTER TABLE geometry_columns OWNER TO gis; ALTER TABLE spatial_ref_sys OWNER TO gis;" -d srtm
 
   #setup trusting auth so no errors with osm2pgsql
   sed -i 's/peer/trust/g' /etc/postgresql/9.5/main/pg_hba.conf

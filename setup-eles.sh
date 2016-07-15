@@ -6,9 +6,9 @@ fi
 rm eles/*
 
 unzip N45W123.SRTMGL3.hgt.zip
-gdalwarp -t_srs "EPSG:3857" -r bilinear -of VRT N45W123.hgt eles/srtm_30m.vrt
-gdaldem hillshade eles/srtm_30m.vrt styles/rwgps/layers/srtm3_hillshade.tiff -of GTiff
-gdaldem slope eles/srtm_30m.vrt styles/rwgps/layers/srtm3_slope.tiff -of GTiff
+gdalwarp -t_srs "EPSG:3857" -r bilinear -of VRT N45W123.hgt eles/srtm_90m.vrt
+gdaldem hillshade eles/srtm_90m.vrt styles/rwgps/layers/srtm_hillshade.tiff -of GTiff
+gdaldem slope eles/srtm_90m.vrt styles/rwgps/layers/srtm_slopeshade.tiff -of GTiff
 
 #make contours
 gdal_contour -i 10 -a ele -snodata -32768 N45W123.hgt eles/contours.shp

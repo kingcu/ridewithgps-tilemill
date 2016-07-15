@@ -20,7 +20,8 @@
     "base.mss",
     "roads.mss",
     "labels.mss",
-    "border.mss"
+    "border.mss",
+    "contours.mss"
   ],
   "Layer": [
     {
@@ -82,6 +83,25 @@
         83.66933299999998
       ],
       "advanced": {}
+    },
+    {
+      "geometry": "raster",
+      "extent": [
+        -123.0004166666667,
+        44.999485139533576,
+        -121.9994107689659,
+        46.00041666666668
+      ],
+      "id": "hillshade",
+      "class": "hillshade",
+      "Datasource": {
+        "file": "layers/srtm_hillshade.tiff"
+      },
+      "layer": null,
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "hillshade"
     },
     {
       "Datasource": {
@@ -150,6 +170,101 @@
       "name": "landuse",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "srs-name": "900913"
+    },
+    {
+      "geometry": "raster",
+      "extent": [
+        -123.0004166666667,
+        44.999485139533576,
+        -121.9994107689659,
+        46.00041666666668
+      ],
+      "id": "slopeshade",
+      "class": "slopeshade",
+      "Datasource": {
+        "file": "layers/srtm_slopeshade.tiff"
+      },
+      "layer": null,
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "slopeshade",
+      "status": "off"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -123.00041666666654,
+        44.999583333333305,
+        -121.99958333333322,
+        46.00041666666668
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT wkb_geometry, ele FROM srtm_contours_250m) AS contours_250m",
+        "key_field": "",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "-13692343.7506938,5621455.89079156,-13580931.4936582,5780415.99163317",
+        "dbname": "srtm",
+        "user": "gis"
+      },
+      "id": "contour-250m",
+      "class": "contour",
+      "srs-name": "custom",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "contour-250m"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -123.00041666666654,
+        44.999583333333305,
+        -121.99958333333322,
+        46.00041666666668
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT wkb_geometry, ele FROM srtm_contours_50m) AS contours_50m",
+        "key_field": "",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "-13692343.7506938,5621455.89079156,-13580931.4936582,5780415.99163317",
+        "dbname": "srtm",
+        "user": "gis"
+      },
+      "id": "contour-50m",
+      "class": "contour",
+      "srs-name": "custom",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "contour-50m"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -123.00041666666654,
+        44.999583333333305,
+        -121.99958333333322,
+        46.00041666666668
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT wkb_geometry, ele FROM srtm_contours_10m) AS contours_10m",
+        "key_field": "",
+        "geometry_field": "wkb_geometry",
+        "extent_cache": "auto",
+        "extent": "-13692343.7506938,5621455.89079156,-13580931.4936582,5780415.99163317",
+        "user": "gis",
+        "dbname": "srtm"
+      },
+      "id": "contour-10m",
+      "class": "contour",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "contour-10m"
     },
     {
       "Datasource": {
