@@ -24,12 +24,11 @@
 }
 
 #landuse_gen0[zoom>3][zoom<=9],
-#landuse_gen1[zoom>9][zoom<=12],
-#landuse[zoom>12] {
+#landuse_gen1[zoom>9][zoom<12],
+#landuse[zoom>=12] {
   [type='cemetery']      { polygon-fill: @cemetery; }
   [type='college']       { polygon-fill: @school; }
   [type='commercial']    { polygon-fill: @industrial; }
-  [type='common']        { polygon-fill: @park; }
   [type='forest']        { polygon-fill: @wooded; line-color: darken(@forest, 15%); }
   [type='golf_course']   { polygon-fill: @sports; }
   [type='grass']         { polygon-fill: @grass; line-color: darken(@grass, 15%); }
@@ -74,23 +73,12 @@
   [zoom=11] { line-width: 1.5; }
   [zoom>=12] { line-width: 2.0; }
 }
- 
-#landuse_overlays[type='wetland'][zoom>11] {
-  [zoom>11][zoom<=14] { polygon-pattern-file:url(img/marsh-16.png); }
-  [zoom>14] { polygon-pattern-file:url(img/marsh-32.png);}
-  }
 
 /* ---- BUILDINGS ---- */
-#buildings[zoom>=12][zoom<=16] {
+#buildings[zoom>=16][zoom<=16] {
   polygon-fill:@building;
-  [zoom>=14] {
-    line-color:darken(@building,5);
-    line-width:0.2;
-  }
-  [zoom>=16] {
-    line-color:darken(@building,10);
-    line-width:0.4;
-  }
+  line-color:darken(@building,20);
+  line-width:0.4;
 }
 // At the highest zoom levels, render buildings in fancy pseudo-3D.
 // Ordering polygons by their Y-position is necessary for this effect

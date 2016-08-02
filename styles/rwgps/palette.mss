@@ -39,7 +39,7 @@ Map { font-directory: url(./fonts); buffer-size: 256; background-color: @water; 
 /* ================================================================== */
 
 @water:     		#c0d8ff;
-@land:      		#f4f6f0;
+@land:      		#eaeaea;
 @forest:    		#c7e6a8;
 @agriculture: 		#f4f0e0;
 @grass:     		lighten(@forest,5);
@@ -85,8 +85,9 @@ Map { font-directory: url(./fonts); buffer-size: 256; background-color: @water; 
 @trunk_line:    	spin(darken(@trunk_fill,25),-10);
 @trunk_case:        @trunk_line * 0.9;
 
-@secondary_fill: 	@primary_fill;
-@secondary_line: 	spin(darken(@secondary_fill,25),-10);
+//@secondary_fill: 	#f9f9f9;
+@secondary_fill: 	#ffffff;
+@secondary_line: 	spin(darken(@secondary_fill,10),-10);
 @secondary_case:    @secondary_line * 0.9;
 
 @tertiary_fill: 	@secondary_fill;
@@ -100,16 +101,6 @@ Map { font-directory: url(./fonts); buffer-size: 256; background-color: @water; 
 @pedestrian_fill:   #FAFAF5;
 @pedestrian_line:   @standard_line;
 @pedestrian_case:   @land;
-
-/*
-@foot_line:   		#77dd88;
-@foot_fill:   		lighten(@foot_line,25);
-@foot_case:   		@land;
-
-@cycle_line:        #66aae0;
-@cycle_fill:        lighten(@cycle_line,25);
-@cycle_case:        @land;
-*/
 
 @cycle_fill: 		#66aae0;
 @cycle_line: 		spin(darken(@cycle_fill,25),-10);
