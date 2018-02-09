@@ -37,7 +37,7 @@ EOF
   #can't run npm as root
   su ubuntu << EOF
 cd ~
-git clone https://github.com/mapbox/tilemill.git
+git clone https://github.com/tilemill-project/tilemill.git
 cd tilemill
 npm install
 EOF
